@@ -1,0 +1,358 @@
+* {
+  box-sizing: border-box;
+}
+/**----------------------------------------------------------------------------*/
+/* GENERATE FLEX BOX PARAMETERS*/
+/**----------------------------------------------------------------------------*/
+.horizontal-flex-start,
+.vertical-flex-start {
+  justify-content: flex-start;
+}
+.horizontal-flex-end,
+.vertical-flex-end {
+  justify-content: flex-end;
+}
+.horizontal-space-between,
+.vertical-space-between {
+  justify-content: space-between;
+}
+.horizontal-space-around,
+.vertical-space-around {
+  justify-content: space-around;
+}
+.horizontal-center,
+.vertical-center {
+  justify-content: center;
+}
+.horizontal-flex-start,
+.horizontal-flex-end,
+.horizontal-space-between,
+.horizontal-space-around,
+.horizontal-center {
+  flex-direction: row;
+}
+.vertical-flex-start,
+.vertical-flex-end,
+.vertical-space-between,
+.vertical-space-around,
+.vertical-center {
+  flex-direction: column;
+}
+.horizontal-flex-start,
+.horizontal-flex-end,
+.horizontal-space-between,
+.horizontal-space-around,
+.horizontal-center,
+.vertical-flex-start,
+.vertical-flex-end,
+.vertical-space-between,
+.vertical-space-around,
+.vertical-center {
+  display: flex;
+  align-content: stretch;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.horizontal-flex-start.stretch,
+.horizontal-flex-end.stretch,
+.horizontal-space-between.stretch,
+.horizontal-space-around.stretch,
+.horizontal-center.stretch,
+.vertical-flex-start.stretch,
+.vertical-flex-end.stretch,
+.vertical-space-between.stretch,
+.vertical-space-around.stretch,
+.vertical-center.stretch {
+  align-items: stretch;
+}
+.horizontal-flex-start.span-1 > *,
+.horizontal-flex-end.span-1 > *,
+.horizontal-space-between.span-1 > *,
+.horizontal-space-around.span-1 > *,
+.horizontal-center.span-1 > *,
+.vertical-flex-start.span-1 > *,
+.vertical-flex-end.span-1 > *,
+.vertical-space-between.span-1 > *,
+.vertical-space-around.span-1 > *,
+.vertical-center.span-1 > * {
+  flex-grow: 1;
+}
+.horizontal-flex-start:not(.span-1) > *.span-12,
+.horizontal-flex-end:not(.span-1) > *.span-12,
+.horizontal-space-between:not(.span-1) > *.span-12,
+.horizontal-space-around:not(.span-1) > *.span-12,
+.horizontal-center:not(.span-1) > *.span-12,
+.vertical-flex-start:not(.span-1) > *.span-12,
+.vertical-flex-end:not(.span-1) > *.span-12,
+.vertical-space-between:not(.span-1) > *.span-12,
+.vertical-space-around:not(.span-1) > *.span-12,
+.vertical-center:not(.span-1) > *.span-12 {
+  flex-grow: 12;
+}
+.horizontal-flex-start:not(.span-1) > *.span-11,
+.horizontal-flex-end:not(.span-1) > *.span-11,
+.horizontal-space-between:not(.span-1) > *.span-11,
+.horizontal-space-around:not(.span-1) > *.span-11,
+.horizontal-center:not(.span-1) > *.span-11,
+.vertical-flex-start:not(.span-1) > *.span-11,
+.vertical-flex-end:not(.span-1) > *.span-11,
+.vertical-space-between:not(.span-1) > *.span-11,
+.vertical-space-around:not(.span-1) > *.span-11,
+.vertical-center:not(.span-1) > *.span-11 {
+  flex-grow: 11;
+}
+.horizontal-flex-start:not(.span-1) > *.span-10,
+.horizontal-flex-end:not(.span-1) > *.span-10,
+.horizontal-space-between:not(.span-1) > *.span-10,
+.horizontal-space-around:not(.span-1) > *.span-10,
+.horizontal-center:not(.span-1) > *.span-10,
+.vertical-flex-start:not(.span-1) > *.span-10,
+.vertical-flex-end:not(.span-1) > *.span-10,
+.vertical-space-between:not(.span-1) > *.span-10,
+.vertical-space-around:not(.span-1) > *.span-10,
+.vertical-center:not(.span-1) > *.span-10 {
+  flex-grow: 10;
+}
+.horizontal-flex-start:not(.span-1) > *.span-9,
+.horizontal-flex-end:not(.span-1) > *.span-9,
+.horizontal-space-between:not(.span-1) > *.span-9,
+.horizontal-space-around:not(.span-1) > *.span-9,
+.horizontal-center:not(.span-1) > *.span-9,
+.vertical-flex-start:not(.span-1) > *.span-9,
+.vertical-flex-end:not(.span-1) > *.span-9,
+.vertical-space-between:not(.span-1) > *.span-9,
+.vertical-space-around:not(.span-1) > *.span-9,
+.vertical-center:not(.span-1) > *.span-9 {
+  flex-grow: 9;
+}
+.horizontal-flex-start:not(.span-1) > *.span-8,
+.horizontal-flex-end:not(.span-1) > *.span-8,
+.horizontal-space-between:not(.span-1) > *.span-8,
+.horizontal-space-around:not(.span-1) > *.span-8,
+.horizontal-center:not(.span-1) > *.span-8,
+.vertical-flex-start:not(.span-1) > *.span-8,
+.vertical-flex-end:not(.span-1) > *.span-8,
+.vertical-space-between:not(.span-1) > *.span-8,
+.vertical-space-around:not(.span-1) > *.span-8,
+.vertical-center:not(.span-1) > *.span-8 {
+  flex-grow: 8;
+}
+.horizontal-flex-start:not(.span-1) > *.span-7,
+.horizontal-flex-end:not(.span-1) > *.span-7,
+.horizontal-space-between:not(.span-1) > *.span-7,
+.horizontal-space-around:not(.span-1) > *.span-7,
+.horizontal-center:not(.span-1) > *.span-7,
+.vertical-flex-start:not(.span-1) > *.span-7,
+.vertical-flex-end:not(.span-1) > *.span-7,
+.vertical-space-between:not(.span-1) > *.span-7,
+.vertical-space-around:not(.span-1) > *.span-7,
+.vertical-center:not(.span-1) > *.span-7 {
+  flex-grow: 7;
+}
+.horizontal-flex-start:not(.span-1) > *.span-6,
+.horizontal-flex-end:not(.span-1) > *.span-6,
+.horizontal-space-between:not(.span-1) > *.span-6,
+.horizontal-space-around:not(.span-1) > *.span-6,
+.horizontal-center:not(.span-1) > *.span-6,
+.vertical-flex-start:not(.span-1) > *.span-6,
+.vertical-flex-end:not(.span-1) > *.span-6,
+.vertical-space-between:not(.span-1) > *.span-6,
+.vertical-space-around:not(.span-1) > *.span-6,
+.vertical-center:not(.span-1) > *.span-6 {
+  flex-grow: 6;
+}
+.horizontal-flex-start:not(.span-1) > *.span-5,
+.horizontal-flex-end:not(.span-1) > *.span-5,
+.horizontal-space-between:not(.span-1) > *.span-5,
+.horizontal-space-around:not(.span-1) > *.span-5,
+.horizontal-center:not(.span-1) > *.span-5,
+.vertical-flex-start:not(.span-1) > *.span-5,
+.vertical-flex-end:not(.span-1) > *.span-5,
+.vertical-space-between:not(.span-1) > *.span-5,
+.vertical-space-around:not(.span-1) > *.span-5,
+.vertical-center:not(.span-1) > *.span-5 {
+  flex-grow: 5;
+}
+.horizontal-flex-start:not(.span-1) > *.span-4,
+.horizontal-flex-end:not(.span-1) > *.span-4,
+.horizontal-space-between:not(.span-1) > *.span-4,
+.horizontal-space-around:not(.span-1) > *.span-4,
+.horizontal-center:not(.span-1) > *.span-4,
+.vertical-flex-start:not(.span-1) > *.span-4,
+.vertical-flex-end:not(.span-1) > *.span-4,
+.vertical-space-between:not(.span-1) > *.span-4,
+.vertical-space-around:not(.span-1) > *.span-4,
+.vertical-center:not(.span-1) > *.span-4 {
+  flex-grow: 4;
+}
+.horizontal-flex-start:not(.span-1) > *.span-3,
+.horizontal-flex-end:not(.span-1) > *.span-3,
+.horizontal-space-between:not(.span-1) > *.span-3,
+.horizontal-space-around:not(.span-1) > *.span-3,
+.horizontal-center:not(.span-1) > *.span-3,
+.vertical-flex-start:not(.span-1) > *.span-3,
+.vertical-flex-end:not(.span-1) > *.span-3,
+.vertical-space-between:not(.span-1) > *.span-3,
+.vertical-space-around:not(.span-1) > *.span-3,
+.vertical-center:not(.span-1) > *.span-3 {
+  flex-grow: 3;
+}
+.horizontal-flex-start:not(.span-1) > *.span-2,
+.horizontal-flex-end:not(.span-1) > *.span-2,
+.horizontal-space-between:not(.span-1) > *.span-2,
+.horizontal-space-around:not(.span-1) > *.span-2,
+.horizontal-center:not(.span-1) > *.span-2,
+.vertical-flex-start:not(.span-1) > *.span-2,
+.vertical-flex-end:not(.span-1) > *.span-2,
+.vertical-space-between:not(.span-1) > *.span-2,
+.vertical-space-around:not(.span-1) > *.span-2,
+.vertical-center:not(.span-1) > *.span-2 {
+  flex-grow: 2;
+}
+.horizontal-flex-start:not(.span-1) > *.span-1,
+.horizontal-flex-end:not(.span-1) > *.span-1,
+.horizontal-space-between:not(.span-1) > *.span-1,
+.horizontal-space-around:not(.span-1) > *.span-1,
+.horizontal-center:not(.span-1) > *.span-1,
+.vertical-flex-start:not(.span-1) > *.span-1,
+.vertical-flex-end:not(.span-1) > *.span-1,
+.vertical-space-between:not(.span-1) > *.span-1,
+.vertical-space-around:not(.span-1) > *.span-1,
+.vertical-center:not(.span-1) > *.span-1 {
+  flex-grow: 1;
+}
+.horizontal-flex-start.no-wrap,
+.horizontal-flex-end.no-wrap,
+.horizontal-space-between.no-wrap,
+.horizontal-space-around.no-wrap,
+.horizontal-center.no-wrap,
+.vertical-flex-start.no-wrap,
+.vertical-flex-end.no-wrap,
+.vertical-space-between.no-wrap,
+.vertical-space-around.no-wrap,
+.vertical-center.no-wrap {
+  flex-wrap: nowrap;
+}
+/**----------------------------------------------------------------------------*/
+/** CLOSE FLEX BOX GENERATION */
+/**----------------------------------------------------------------------------*/
+/**----------------------------------------------------------------------------*/
+/* HEADING FORMATTING*/
+/**----------------------------------------------------------------------------*/
+h6 {
+  font-size: 19px !important;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+h5 {
+  font-size: 20px !important;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+h4 {
+  font-size: 21px !important;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+h3 {
+  font-size: 22px !important;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-size: 23px !important;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+h1 {
+  font-size: 24px !important;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+/**----------------------------------------------------------------------------*/
+/* CLOSE HEADING FORMATTING*/
+/**----------------------------------------------------------------------------*/
+.news-events-list .media {
+  border-bottom: .1rem solid #c0c0c0;
+}
+.news-events-list .media .media-heading {
+  font-size: 2rem;
+}
+.news-events-list .media .media-object {
+  max-height: 10rem;
+}
+.news-events-list .media hr {
+  margin: .5rem 0;
+}
+.news-events-list .media .media-left {
+  border-right: .1rem dotted #c0c0c0;
+}
+.news-events-list .media .media-body {
+  padding-left: 1rem;
+}
+.content-list .media {
+  border-bottom: .1rem solid #c0c0c0;
+}
+.content-list .media .media-heading {
+  font-size: 2rem;
+}
+.content-list .media .media-object {
+  max-height: 10rem;
+}
+.content-list .media hr {
+  margin: .5rem 0;
+}
+.content-list .media .media-left {
+  border-right: .1rem dotted #c0c0c0;
+}
+.content-list .media .media-body {
+  padding-left: 1rem;
+}
+.content-list .media-object {
+  max-height: 8rem !important;
+}
+fieldset.default {
+  border: 1px solid #c0c0c0;
+  border-radius: .5rem;
+  padding: 2rem;
+}
+fieldset.default legend {
+  width: auto;
+  display: inline-block;
+  margin: 0;
+  border-bottom: none;
+  padding: .5rem 1rem;
+  font-size: 1.8rem;
+}
+.tab-pane {
+  padding: 1rem;
+}
+.users-list i {
+  margin-right: 2rem;
+}
+.login-page {
+  padding: 2rem;
+  min-height: 3rem;
+}
+.login-page input {
+  display: inline-block;
+}
+.logo img {
+  max-width: 5rem;
+  max-height: 5rem;
+  margin-right: 1rem;
+}
+.logo a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+.logo a h1 {
+  font-weight: bold;
+  text-transform: capitalize;
+  margin: 0;
+  color: #797161;
+}
+.logo a h1 span {
+  text-transform: uppercase;
+  letter-spacing: .4rem;
+}

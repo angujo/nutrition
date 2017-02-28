@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+
+/**----------------------------------------------------------------------------*/
+/* GENERATE FLEX BOX PARAMETERS*/
+/**----------------------------------------------------------------------------*/
+
+.flexBoxer(@align) {
+  .horizontal-@{align}, .vertical-@{align} {
+    justify-content: @align;
+  }
+}
+
+.flexJoin(@f1,@f2,@f3,@f4,@f5) {
+  .horizontal-@{f1}, .horizontal-@{f2}, .horizontal-@{f3}, .horizontal-@{f4}, .horizontal-@{f5} {
+    flex-direction: row;
+  }
+  .vertical-@{f1}, .vertical-@{f2}, .vertical-@{f3}, .vertical-@{f4}, .vertical-@{f5} {
+    flex-direction: column;
+  }
+  .horizontal-@{f1}, .horizontal-@{f2}, .horizontal-@{f3}, .horizontal-@{f4}, .horizontal-@{f5},
+  .vertical-@{f1}, .vertical-@{f2}, .vertical-@{f3}, .vertical-@{f4}, .vertical-@{f5} {
+    display: flex;
+    align-content: stretch;
+    align-items: center;
+    flex-wrap: wrap;
+    &.stretch {
+      align-items: stretch;
+    }
+    &.span-1 {
+      > * {
+        flex-grow: 1;
+      }
+    }
+    .flexGrow(12);
+    &.no-wrap {
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+.flexGrow(@iterator:1) when (@iterator > 0) {
+  &:not(.span-1) > *.span-@{iterator} {
+    flex-grow: @iterator;
+  }
+  .flexGrow((@iterator - 1));
+}
+
+.flexBoxer(~"flex-start");
+.flexBoxer(~"flex-end");
+.flexBoxer(~"space-between");
+.flexBoxer(~"space-around");
+.flexBoxer(~"center");
+.flexJoin(~"flex-start", ~"flex-end", ~"space-between", ~"space-around", ~"center");
+/**----------------------------------------------------------------------------*/
+/** CLOSE FLEX BOX GENERATION */
+/**----------------------------------------------------------------------------*/
+
+/**----------------------------------------------------------------------------*/
+/* HEADING FORMATTING*/
+/**----------------------------------------------------------------------------*/
+.headers(@iterator:1) when (@iterator > 0) {
+  h@{iterator} {
+    font-size: unit((25-@iterator), px) !important;
+    margin-top: unit(1, rem);
+    margin-bottom: unit(1, rem);
+  }
+  .headers((@iterator - 1));
+}
+
+.headers(6);
+/**----------------------------------------------------------------------------*/
+/* CLOSE HEADING FORMATTING*/
+/**----------------------------------------------------------------------------*/
+
+.news-events-list {
+  .media {
+    border-bottom: .1rem solid #c0c0c0;
+    .media-heading {
+      font-size: 2rem;
+    }
+    .media-object {
+      max-height: 10rem;
+    }
+    hr {
+      margin: .5rem 0;
+    }
+    .media-left {
+      border-right: .1rem dotted #c0c0c0;
+    }
+    .media-body {
+      padding-left: 1rem;
+    }
+  }
+}
+
+.content-list {
+  .news-events-list;
+  .media-object {
+    max-height: 8rem !important;
+  }
+}
+
+fieldset {
+  &.default {
+    border: 1px solid #c0c0c0;
+    border-radius: .5rem;
+    padding: 2rem;
+    legend {
+      width: auto;
+      display: inline-block;
+      margin: 0;
+      border-bottom: none;
+      padding: .5rem 1rem;
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.tab-pane {
+  padding: 1rem;
+}
+
+.users-list {
+  i {
+    margin-right: 2rem;
+  }
+}
+
+.login-page {
+  padding: 2rem;
+  min-height: 3rem;
+  input {
+    display: inline-block;
+  }
+}
+
+.logo {
+  img {
+    max-width: 5rem;
+    max-height: 5rem;
+    margin-right: 1rem;
+  }
+  a {
+    &:hover {
+      text-decoration: none;
+      cursor: pointer;
+    }
+    h1 {
+      font-weight: bold;
+      text-transform: capitalize;
+      margin: 0;
+      color: #797161;
+      span {
+        text-transform: uppercase;
+        letter-spacing: .4rem;
+      }
+    }
+  }
+}
