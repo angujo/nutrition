@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="5e9db6ab-1fcc-4875-89c6-0144c411ba88" name="Nutrition" url="http://23.88.228.129">
+        <fileTransfer host="23.88.228.129" port="2100" rootFolder="/var/www/tenderindicator.com/public_html/nutrition" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="2100" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
