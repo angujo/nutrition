@@ -83,70 +83,6 @@
         }
     </script>
 </div>
-<!-- <div id="wrapperx">
-
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="<?= base_url('admin'); ?>">Admin Portal</a>
-        </div>
-        <ul class="nav navbar-right top-nav">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="<?= base_url('welcome/logout'); ?>"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav side-nav">
-                <li class="<?= 'admin' == $this->uri->segment(1) && '' == $this->uri->segment(2) ? 'active' : ''; ?>">
-                    <a href="<?= base_url(); ?>"><i class="fa fa-fw fa-home"></i> Home</a>
-                </li>
-                <li class="<?= 'admin' == $this->uri->segment(1) && 'chat' == $this->uri->segment(2) ? 'active' : ''; ?>">
-                    <a href="<?= base_url('admin/chat'); ?>"><i class="fa fa-fw fa-comments"></i> Chat Moderation</a>
-                </li>
-                <li class="<?= 'admin' == $this->uri->segment(1) && 'links' == $this->uri->segment(2) ? 'active' : ''; ?>">
-                    <a href="<?= base_url('admin/links'); ?>"><i class="fa fa-fw fa-link"></i> News Links</a>
-                </li>
-                <li class="<?= 'admin' == $this->uri->segment(1) && 'content' == $this->uri->segment(2) ? 'active' : ''; ?>">
-                    <a href="<?= base_url('admin/content'); ?>"><i class="fa fa-fw fa-newspaper-o"></i> HIV Content</a>
-                </li>
-                <li class="<?= 'admin' == $this->uri->segment(1) && 'abc' == $this->uri->segment(2) ? 'active' : ''; ?>">
-                    <a href="<?= base_url('admin/abc'); ?>"><i class="fa fa-fw fa-list"></i> ABCs of HIV</a>
-                </li>
-                <li class="<?= 'admin' == $this->uri->segment(1) && 'users' == $this->uri->segment(2) ? 'active' : ''; ?>">
-                    <a href="<?= base_url('admin/users'); ?>"><i class="fa fa-fw fa-users"></i> Users</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div id="page-wrapper">
-
-        <div class="container-fluid">
-            
-            <?php if (@$view) $this->load->view($view); ?>
-
-        </div>
-
-    </div>
-
-</div> -->
 <!-- /#wrapper -->
 
 <!-- jQuery -->
@@ -158,6 +94,7 @@
 <!-- Bootstrap Tags -->
 <script src="<?= base_url('js/plugins/tags/bootstrap-tagsinput.min.js'); ?>"></script>
 
+<script src="<?= base_url('js/w3css.js'); ?>"></script>
 <script src="<?= base_url('js/script.js'); ?>"></script>
 </body>
 

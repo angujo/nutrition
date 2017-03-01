@@ -12,17 +12,17 @@
 <p class="w3-small w3-text-grey w3-container">Nutrient entry formats are as accessible from <a href="http://ndb.nal.usda.gov/" target="_blank">USDA Food Composition Databases</a>
     The system will automatically add new nutrients upon upload or entry.
 </p>
-<div class="w3-bar w3-light-gray">
-    <a class="w3-bar-item w3-button" href="#">Nutrients List</a>
-    <a class="w3-bar-item w3-button" href="#">Upload</a>
-    <a class="w3-bar-item w3-button" href="#">Manual(Single) Entry</a>
+<div class="w3-bar w3-light-gray w3-tab">
+    <a class="w3-bar-item w3-button" href="#nutrients-list">Nutrients List</a>
+    <a class="w3-bar-item w3-button" href="#nutrient-upload">Upload</a>
+    <a class="w3-bar-item w3-button" href="#nutrient-manual">Manual(Single) Entry</a>
 </div>
-<div class="w3-container" id="nutrient-manual">
+<div class="w3-container w3-animate-left" id="nutrient-manual">
     <?php $this->load->view('admin/nutrition-manual'); ?>
 </div>
-<div class="w3-container" id="nutrient-upload">
+<div class="w3-container w3-animate-left" id="nutrient-upload">
     <?php $this->load->view('admin/nutrition-upload'); ?>
 </div>
-<div class="w3-container" id="nutrients-list">
+<div class="w3-container w3-animate-left" id="nutrients-list">
     <?php $this->load->view('admin/tabular-nutrients'); ?>
 </div>

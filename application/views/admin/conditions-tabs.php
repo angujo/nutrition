@@ -12,13 +12,13 @@
 <p class="w3-small w3-text-grey w3-container">Nutrient entry formats are as accessible from <a href="http://ndb.nal.usda.gov/" target="_blank">USDA Food Composition Databases</a>
     The system will automatically add new nutrients upon upload or entry.
 </p>
-<div class="w3-bar w3-light-gray">
-    <a class="w3-bar-item w3-button" href="#">Conditions List</a>
-    <a class="w3-bar-item w3-button" href="#">Conditions Entry</a>
+<div class="w3-bar w3-light-gray w3-tab">
+    <a class="w3-bar-item w3-button w3-gray" href="#conditions-list">Conditions List</a>
+    <a class="w3-bar-item w3-button" href="#cond-entry">Conditions Entry</a>
 </div>
-<div class="w3-container" id="cond-entry">
+<div class="w3-container w3-animate-left" id="cond-entry">
     <?php $this->load->view('admin/nutrition-condition'); ?>
 </div>
-<div class="w3-container" id="conditions-list">
+<div class="w3-container w3-animate-left" id="conditions-list">
     <?php $this->load->view('admin/tabular-conditions'); ?>
 </div>
