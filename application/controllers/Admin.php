@@ -16,85 +16,22 @@ class Admin extends MY_Controller
     
     function index()
     {
-        $this->view('');
+        $this->view('admin/welcome');
     }
     
-    function chat()
+    function nutrients()
     {
-        $page = $this->model->getPaged(NULL, PAGED_CHAT_MODERATION);
-        if ($this->POST) {
-            $d['key_code'] = PAGED_CHAT_MODERATION;
-            $d['content']  = $this->POST['keywords'];
-            if (!$page) {
-                $d['created_by'] = User::$C_USER->id;
-                $d['created']    = date('Y-m-d H:i:s');
-                if (!$this->model->newPage($d)) $this->data['Error encountered inserting the new record!'];
-            } else {
-                $d['updated']    = date('Y-m-d H:i:s');
-                $d['updated_by'] = User::$C_USER->id;
-                if (!$this->model->updatePage($d, $page->id)) $this->data['error'] = 'Error updating the data';
-            }
-            $page                  = $this->model->getPaged(NULL, PAGED_CHAT_MODERATION);
-            $this->data['message'] = @$this->data['error'] ? '' : 'Chat Keywords Successfully saved!';
-        }
-        $this->data['page'] = $page;
-        $this->view('chat-moderation');
+        $this->view('admin/nutrition-entry');
     }
     
-    function abc()
+    function conditions()
     {
-        $page = $this->model->getPaged(NULL, PAGED_ABC);
-        if ($this->POST) {
-            $d['key_code'] = PAGED_ABC;
-            $d['content']  = $this->POST['content'];
-            if (!$page) {
-                $d['created_by'] = User::$C_USER->id;
-                $d['created']    = date('Y-m-d H:i:s');
-                if (!$this->model->newPage($d)) $this->data['error'] = 'Error encountered inserting the new record!';
-            } else {
-                $d['updated']    = date('Y-m-d H:i:s');
-                $d['updated_by'] = User::$C_USER->id;
-                if (!$this->model->updatePage($d, $page->id)) $this->data['error'] = 'Error updating the data';
-            }
-            $page                  = $this->model->getPaged(NULL, PAGED_ABC);
-            $this->data['message'] = @$this->data['error'] ? '' : 'Successfully saved!';
-        }
-        $this->data['page'] = $page;
-        $this->view('abcs-hiv');
+        $this->view('admin/conditions-tabs');
     }
     
-    function links($linkId = NULL)
+    function children()
     {
-        $link = NULL;
-        if ((int)$linkId) {
-            $link = $this->model->category($linkId);
-        }
-        if ($this->POST) {
-            $d['name']         = $this->POST['name'];
-            $d['publisher']    = $this->POST['publisher'];
-            $d['organization'] = $this->POST['organization'];
-            $d['dated']        = $this->POST['dated'];
-            $d['url']          = $this->POST['url'];
-            $d['is_link']      = 1;
-            $d['thumbnail']    = $this->POST['thumbnail'];
-            if (!$link) {
-                $d['created_by'] = User::$C_USER->id;
-                $d['created']    = date('Y-m-d H:i:s');
-                if (!$linkId = $this->model->newCategory($d)) {
-                    $this->data['error'] = 'An error occurred while inserting new record. Check your entries and try again.';
-                }
-            } else {
-                $d['updated']    = date('Y-m-d H:i:s');
-                $d['updated_by'] = User::$C_USER->id;
-                if (!$this->model->updateCategory($d, $link->id)) $this->data['error'] = 'No changes were made on the record!';
-            }
-            $this->data['message'] = @$this->data['error'] ? '' : 'Successfully saved!';
-            $link                  = $this->model->category($linkId);
-        }
-        $this->data['tab']   = ('new' == $linkId) || $link ? 2 : 1;
-        $this->data['link']  = $link;
-        $this->data['links'] = $this->model->links();
-        $this->view('news-links');
+        $this->view('admin/tabular-children');
     }
     
     

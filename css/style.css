@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+html body {
+  margin: 0;
+}
 /**----------------------------------------------------------------------------*/
 /* GENERATE FLEX BOX PARAMETERS*/
 /**----------------------------------------------------------------------------*/
@@ -337,6 +340,9 @@ fieldset.default legend {
 .login-page input {
   display: inline-block;
 }
+.logo {
+  display: inline-block;
+}
 .logo img {
   max-width: 5rem;
   max-height: 5rem;
@@ -354,5 +360,25 @@ fieldset.default legend {
 }
 .logo a h1 span {
   text-transform: uppercase;
-  letter-spacing: .4rem;
+  letter-spacing: .6rem;
+}
+.nav {
+  padding: .6rem 1.2rem;
+}
+.w3-main {
+  margin-top: 6.5rem;
+}
+fieldset {
+  border: .1rem solid #c0c0c0;
+  padding: 1rem;
+  -webkit-border-radius: .8rem;
+  -moz-border-radius: .8rem;
+  border-radius: .8rem;
+}
+fieldset legend {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+  padding: .5rem 1rem;
+  border: 0;
 }
