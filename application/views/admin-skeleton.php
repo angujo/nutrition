@@ -18,7 +18,7 @@
     <meta name="author" content="Barrack Angujo">
     <meta name="twitter" content="@angujomondi">
 
-    <title>HIV-Antistigma : Admin Portal</title>
+    <title>Mother to Child:Nutrition</title>
 
     <link href="<?= base_url('css/w3.css'); ?>" rel="stylesheet">
     <!-- Bootstrap Core CSS -->
