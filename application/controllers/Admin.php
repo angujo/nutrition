@@ -34,6 +34,11 @@ class Admin extends MY_Controller
         $this->view('admin/tabular-children');
     }
     
+    function child()
+    {
+        $this->view('front/child-page');
+    }
+    
     
     function users()
     {

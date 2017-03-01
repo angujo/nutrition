@@ -25,10 +25,10 @@
         <?php foreach (range(1, rand(10, 25)) as $nutrient) { ?>
             <tr>
                 <td>Jane Doe</td>
-                <td><?= date('F j, Y',strtotime('-'.($m=rand(4,36)).'months')),' - ('.$m.')'; ?></td>
+                <td><?= date('F j, Y', strtotime('-' . ($m = rand(4, 36)) . 'months')), ' - (' . $m . ')'; ?></td>
                 <td><?= rand(5, 20) % 2 ? '<div class="w3-tag w3-small w3-green">Good</div>' : '<div class="w3-tag w3-small w3-red">Attention</div>'; ?></td>
                 <td>
-                    <a><i class="fa fa-eye fa-fw"></i></a>
+                    <a href="<?= base_url('admin/child'); ?>"><i class="fa fa-eye fa-fw"></i></a>
                 </td>
             </tr>
         <?php } ?>

@@ -382,3 +382,6 @@ fieldset legend {
   padding: .5rem 1rem;
   border: 0;
 }
+.image-container {
+  overflow: hidden;
+}
