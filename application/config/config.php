@@ -23,8 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = (@$_SERVER['REQUEST_SCHEME'] ? $_SERVER['REQUEST_SCHEME'] . '://' : '') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-$domains            = ['localhost' => 'localhost/nutrition'];
+$config['base_url'] = (!empty($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+$domains            = ['localhost' => 'localhost/nutrition','tenderindicator.com'=>'tenderindicator.com/nutrition'];
 if (FALSE !== ($k = array_search($_SERVER['HTTP_HOST'], $domains)) || array_key_exists($_SERVER['HTTP_HOST'], $domains)) {
     $config['base_url'] = (!empty($_SERVER['HTTPS']) ? 'https://' : 'http://') . (FALSE === $k ? $domains[$_SERVER['HTTP_HOST']] : $domains[$k]);
 }
