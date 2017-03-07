@@ -21,8 +21,7 @@
     <!-- Custom CSS -->
     <link href="<?= base_url('css/sb-admin.css'); ?>" rel="stylesheet">
     <link href="<?= base_url('css/style.css'); ?>" rel="stylesheet">
-
-
+    
     <!-- Custom Fonts -->
     <link href="<?= base_url('font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css">
 
@@ -49,7 +48,8 @@
         <div class="w3-card">
             <div class="w3-container w3-green">
                 <h2 class="w3-xlarge">Login Page<br/>
-                <small class="small w3-text-white">Enter your username and password below to login. </small></h2>
+                    <small class="small w3-text-white">Enter your username and password below to login.</small>
+                </h2>
             </div>
             <form class=" w3-container" method="post" action="<?= base_url('welcome/'); ?>">
                 <div class="horizontal-center">
@@ -93,7 +93,7 @@
 </div>
 <?php if (@$message) { ?>
     <script>
-        setTimeout("location.href='<?php echo base_url("admin"); ?>'", 3000);
+		setTimeout("location.href='<?php echo base_url("admin"); ?>'", 3000);
     </script>
 <?php } ?>
 <!-- jQuery -->

@@ -13,6 +13,8 @@ class MY_Model extends CI_Model
     public function __construct()
     {
         parent::__construct();
-        $this->DB = $this->load->database('default',TRUE);
+        $this->DB = $this->load->database('default', TRUE);
     }
+    
+    public function lastQuery() { var_dump($this->DB->last_query()); }
 }
