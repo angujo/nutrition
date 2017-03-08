@@ -16,18 +16,24 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach (range(1, rand(10, 25)) as $nutrient) { ?>
-            <tr>
-                <td>Random Condition <?= $nutrient; ?></td>
-                <td>Age <?=(rand(2,5)%2?'>':'<'), ' ',rand(0.4,36),' ', (rand(2,5)%2?'And':'Or'); ?>  Weight <?=(rand(2,5)%2?'>':'<'), ' ',rand(10,50); ?>kg</td>
-                <td><?= rand(5, 20); ?></td>
-                <td>
-                    <a><i class="fa fa-eye fa-fw"></i></a>
-                    <a><i class="fa fa-pencil fa-fw"></i></a>
-                    <a class="text-danger"><i class="fa fa-trash fa-fw"></i></a>
-                </td>
-            </tr>
-        <?php } ?>
+        <?php if (!@$conditions) {
+            echo '<tr><td colspan="4" class="text-muted small text-center">No Conditions So far!</td></tr>';
+        } else {
+            foreach ($conditions as $condition) { ?>
+                <tr>
+                    <td><?= $condition->condition_name; ?></td>
+                    <td>Age <?= (2 == $condition->age_logic ? '>' : '<'), ' ', $condition->age, ' ', (2 == $condition->joining_logic ? 'And' : 'Or'); ?>
+                        Weight <?= (2 == $condition->weight_logic ? '>' : '<'), ' ', $condition->weight; ?>kg
+                    </td>
+                    <td><?= $condition->nutrients; ?></td>
+                    <td>
+                        <a><i class="fa fa-eye fa-fw"></i></a>
+                        <a href="<?= base_url('admin/conditions/' . $condition->id); ?>"><i class="fa fa-pencil fa-fw"></i></a>
+                        <a class="text-danger"><i class="fa fa-trash fa-fw"></i></a>
+                    </td>
+                </tr>
+            <?php }
+        } ?>
         </tbody>
     </table>
     <hr/>

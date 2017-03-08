@@ -155,7 +155,8 @@ class Admin extends MY_Controller
             $this->data['item']                = $this->modelAdmin->getCondition($id);
             $this->data['condition_nutrients'] = $this->modelAdmin->getConditionNutrients($id);
         }
-        $this->data['nutrients'] = $this->modelAdmin->getNutrients();
+        $this->data['nutrients']  = $this->modelAdmin->getNutrients();
+        $this->data['conditions'] = $this->modelAdmin->getConditions(99999);
         $this->view('admin/conditions-tabs');
     }
     

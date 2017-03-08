@@ -23,6 +23,14 @@ class Adminmodel extends MY_Model
         return $res->num_rows() > 0 ? $res->result() : NULL;
     }
     
+    function getConditions($limitCount = NULL, $start = 0)
+    {
+        $this->DB->group_by('c.id')->join('condition_nutrients n', 'n.condition_id = c.id AND n.nutrient_value > 0 AND n.nutrient_value IS NOT NULL', 'left')->select('c.*, COUNT(DISTINCT n.id) nutrients', FALSE);
+        if (!is_numeric($limitCount)) return $this->DB->count_all_results('child_condition c');
+        $res = $this->DB->get('child_condition c', $limitCount, $start);
+        return $res->num_rows() > 0 ? $res->result() : NULL;
+    }
+    
     function checkFoodNutrients($food_id, array $details, $return = FALSE)
     {
         $this->DB->where('food_id', $food_id)->join('nutrients', 'nutrients.id = food_nutrition.nutrient_id');
