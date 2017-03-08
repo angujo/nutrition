@@ -16,18 +16,22 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach (range(1, rand(10, 25)) as $nutrient) { ?>
-            <tr>
-                <td>Random Food <?= $nutrient; ?></td>
-                <td>@ <?= number_format(rand(500, 2000),1); ?>&micro;g</td>
-                <td><?= rand(5, 20); ?></td>
-                <td>
-                    <a><i class="fa fa-eye fa-fw"></i></a>
-                    <a><i class="fa fa-pencil fa-fw"></i></a>
-                    <a class="text-danger"><i class="fa fa-trash fa-fw"></i></a>
-                </td>
-            </tr>
-        <?php } ?>
+        <?php if (!@$foods) {
+            echo '<tr><td colspan="4" class="text-center text-muted">No Foods Entered so far!</td></tr>';
+        } else {
+            foreach ($foods as $theFood) { ?>
+                <tr>
+                    <td><?= $theFood->food_name; ?></td>
+                    <td>@ <?= number_format((float)$theFood->serving_amount, 1), $theFood->serving_unit; ?></td>
+                    <td><?= number_format((float)$theFood->nutrients, 0); ?></td>
+                    <td>
+                        <a><i class="fa fa-eye fa-fw"></i></a>
+                        <a href="<?= base_url('admin/nutrients/' . $theFood->id); ?>"><i class="fa fa-pencil fa-fw"></i></a>
+                        <a class="text-danger"><i class="fa fa-trash fa-fw"></i></a>
+                    </td>
+                </tr>
+            <?php }
+        } ?>
         </tbody>
     </table>
     <hr/>

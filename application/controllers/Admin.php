@@ -32,6 +32,7 @@ class Admin extends MY_Controller
             $this->data['food']      = $this->modelAdmin->getFood($food_id);
             $this->data['nutrients'] = $this->modelAdmin->getFoodNutrients($food_id);
         }
+        $this->data['foods'] = $this->modelAdmin->getFoodsList(99999);
         $this->view('admin/nutrition-entry');
     }
     
@@ -82,6 +83,7 @@ class Admin extends MY_Controller
             if (($handle = fopen($d['full_path'], "r")) !== FALSE) {
                 $gotIt       = FALSE;
                 $valueColumn = NULL;
+                $unitColumn  = NULL;
                 $r           = 0;
                 while (($row = fgetcsv($handle, 1000, ",")) !== FALSE) {
                     $count = count($row);
@@ -93,14 +95,32 @@ class Admin extends MY_Controller
                         if (FALSE !== $gotIt && $gotIt == $r && NULL === $valueColumn) {
                             $valueColumn = ((FALSE !== strpos($row[$c], 'per 100 g') || FALSE !== strpos($row[$c], 'per 100g')) ? $c : NULL);
                         }
+                        if (FALSE !== $gotIt && $gotIt == $r && NULL === $unitColumn) {
+                            $unitColumn = (trim(strtolower($row[$c])) == 'unit' ? $c : NULL);
+                        }
                         if (FALSE !== $gotIt && NULL !== $valueColumn && $c == $valueColumn) $rc['nutrient_value'] = $row[$c];
                         if (FALSE !== $gotIt && NULL !== $valueColumn && $c == 0) $rc['nutrient_name'] = $row[$c];
+                        if (FALSE !== $gotIt && NULL !== $unitColumn && $c == $unitColumn) $rc['nutrient_unit'] = $row[$c];
                     }
-                    if ($rc)
+                    if ($rc && 2 <= count($rc))
                         $content[] = $rc;
                     $r++;
                 }
             }
+            $ids = [];
+            foreach ($content as $index => $nutrient) {
+                if (empty($nutrient['nutrient_name']) || !trim($nutrient['nutrient_name']) || !strlen($nutrient['nutrient_value'])) continue;
+                $nutrient['food_id']       = $foodID;
+                $nutrient['nutrient_unit'] = @$nutrient['nutrient_unit'] ?: 'g';
+                $nutrient['updated']       = date('Y-m-d H:i:s');
+                if ($nut = $this->modelAdmin->checkFoodNutrients($foodID, ['nutrient_name' => $nutrient['nutrient_name']])) {
+                    $this->modelAdmin->updateFoodNutrient($nut->id, $nutrient);
+                    $ids[] = $nut->id;
+                } else {
+                    $ids[] = $this->modelAdmin->saveFoodNutrient($nutrient);
+                }
+            }
+            $this->modelAdmin->clearFoodNutrients($foodID, $ids);
             //unlink($d['full_path']);
         }
     }
@@ -126,9 +146,46 @@ class Admin extends MY_Controller
         else return $ids;
     }
     
-    function conditions()
+    function conditions($id = NULL)
     {
+        if ($this->POST) {
+            $id = $this->saveCondition();
+        }
+        if ($id) {
+            $this->data['item']                = $this->modelAdmin->getCondition($id);
+            $this->data['condition_nutrients'] = $this->modelAdmin->getConditionNutrients($id);
+        }
+        $this->data['nutrients'] = $this->modelAdmin->getNutrients();
         $this->view('admin/conditions-tabs');
+    }
+    
+    private function saveCondition()
+    {
+        $condition = [
+            'condition_name' => $this->POST['condition_name'],
+            'age_logic'      => $this->POST['age_logic'],
+            'joining_logic'  => $this->POST['joining_logic'],
+            'weight_logic'   => $this->POST['weight_logic'],
+            'weight'         => $this->POST['weight'],
+            'age'            => $this->POST['age'],
+            'description'    => $this->POST['description'],
+            'updated'        => date('Y-m-d H:i:s'),];
+        $condID    = @$this->POST['id'];
+        $effected  = FALSE;
+        if ($condID) {
+            $effected = $this->modelAdmin->updateChildCondition($condID, $condition);
+        } else {
+            $effected = $condID = $this->modelAdmin->saveChildCondition($condition);
+        }
+        if ($effected && $condID && !empty($this->POST['nutrient']) && is_array($this->POST['nutrient'])) {
+            foreach ($this->POST['nutrient'] as $nutID => $value) {
+                $this->modelAdmin->addConditionNutrient($condID, $nutID, $value);
+            }
+            $this->data['msg'] = 'Condition successfully saved!';
+        } else {
+            $this->data['error'] = 'An error encountered! Ensure condition has nutrient value!';
+        }
+        return $condID;
     }
     
     function children()
