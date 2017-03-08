@@ -30,4 +30,10 @@ class MY_Controller extends CI_Controller
         $this->data['view'] = $view;
         $this->load->view('admin-skeleton', $this->data);
     }
+    
+    protected function front($view)
+    {
+        $this->data['view'] = $view;
+        $this->load->view('user-skeleton', $this->data);
+    }
 }

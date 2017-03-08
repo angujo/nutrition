@@ -385,3 +385,9 @@ fieldset legend {
 .image-container {
   overflow: hidden;
 }
+.food-list .food-item {
+  margin-bottom: 2rem;
+}
+.food-list .food-item img {
+  max-width: 17rem;
+}

@@ -48,40 +48,25 @@
     <div class="w3-bar w3-light-gray nav">
         <div class="horizontal-space-between">
             <?php $this->load->view('include/logo'); ?>
-            <a class="w3-text-black" title="log out" href="<?=base_url('welcome/logout') ?>"><i class="fa-power-off fa fa-fw fa-2x"></i></a>
+            <?php if (User::$C_USER) { ?>
+                <a class="w3-text-black" title="log out" href="<?= base_url('welcome/logout') ?>"><i class="fa-power-off fa fa-fw fa-2x"></i></a>
+            <?php } else { ?>
+                <a class="w3-text-black" title="log out" href="<?= base_url('welcome/') ?>">Login</a>
+            <?php } ?>
         </div>
     </div>
 </div>
 <div class="">
-    <nav class="w3-sidenav w3-collapse w3-teal w3-text-white" style="width:200px" id="mySidenav">
-        <a href="#" onclick="w3_close()" class="w3-closenav w3-hide-large">Close &times;</a>
-        <a href="<?= base_url('admin/'); ?>" class="w3-large w3-hover-grey w3-text-white w3-padding">
-            <i class="fa fa-home fa-fw"></i>Home</a>
-        <a href="<?= base_url('admin/nutrients'); ?>" class="w3-large w3-hover-grey w3-text-white w3-padding">
-            <i class="fa-fw fa fa-tint"></i>Food & Nutrients</a>
-        <a href="<?= base_url('admin/conditions'); ?>" class="w3-large w3-hover-grey w3-text-white w3-padding">
-            <i class="fa fa-fw fa-smile-o"></i>Child Settings</a>
-        <a href="<?= base_url('admin/children'); ?>" class="w3-large w3-hover-grey w3-text-white w3-padding">
-            <i class="fa fa-fw fa-users"></i>Children</a>
-        <a href="<?= base_url('admin/'); ?>" class="w3-large w3-hover-grey w3-text-white w3-padding">
-            <i class="fa fa-fw fa-gear"></i>Settings</a>
-    </nav>
-
-    <div class="w3-main w3-padding" style="margin-left:200px">
-        <span class="w3-opennav w3-hide-large" onclick="w3_open()">&#9776;</span>
-        <div>
+    <div class="w3-main">
+        <div class="w3-bar w3-border w3-green">
+            <a class="w3-bar-item w3-button w3-padding-16" href="#">Recommendations</a>
+            <a class="w3-bar-item w3-button w3-padding-16" href="#">Food History</a>
+            <a class="w3-bar-item w3-button w3-padding-16" href="#">Child Details</a>
+        </div>
+        <div class="w3-padding">
             <?php if (@$view) $this->load->view($view); ?>
         </div>
     </div>
-
-    <script>
-        function w3_open() {
-            document.getElementById("mySidenav").style.display = "block";
-        }
-        function w3_close() {
-            document.getElementById("mySidenav").style.display = "none";
-        }
-    </script>
 </div>
 <!-- /#wrapper -->
 
