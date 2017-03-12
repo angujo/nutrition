@@ -52,7 +52,7 @@
     <div class="window-attached started collapse">
         <div class="window-attached vertical-center">
             <div class="carousel slide col-xs-12 col-sm-12 col-md-6" data-ride="carousel" id="started-slider" data-interval="false" data-pause="null" data-wrap="false" data-keyboard="false">
-                <div class="carousel-inner" role="listbox">
+                <form class="carousel-inner" role="listbox">
                     <div class="item active">
                         <div class="slide-item vertical-center">
                             <h3 class="w3-text-white text-center">What is the name of your child?</h3>
@@ -106,24 +106,24 @@
                     </div>
                     <div class="item">
                         <div class="slide-item vertical-center">
-                            <h3 class="w3-text-white text-center">Enter your username and password</h3>
+                            <h3 class="w3-text-white text-center">Enter your new username and password</h3>
                             <div class="horizontal-center col-xs-12">
-                                <input type="text" name="usermail" class="w3-input text-center w3-animate-input col-xs-12 col-sm-10 col-md-6" id="i-title" placeholder="Username" value="">
+                                <input type="text" name="usermail" required class="w3-input text-center w3-animate-input col-xs-12 col-sm-10 col-md-6" id="i-title" placeholder="Username" value="">
                             </div><hr/>
                             <div class="horizontal-center col-xs-12">
-                                <input type="password" name="password" class="w3-input text-center w3-animate-input col-xs-12 col-sm-10 col-md-6" id="i-title" placeholder="Password" value="">
+                                <input type="password" name="password" required class="w3-input text-center w3-animate-input col-xs-12 col-sm-10 col-md-6" id="i-title" placeholder="Password" value="">
                             </div>
                             <hr/>
                             <div class="horizontal-space-between col-xs-12">
                                 <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="prev">< Previous</a>
-                                <button class="w3-button w3-teal" href="#started-slider" role="button" data-slide="next">Register</button>
+                                <button class="w3-button w3-teal" href="#started-slider" role="button" type="submit" data-slide="next">Register</button>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
             <hr/>
-            <div class="text-center w3-text-white">Already Registered? <a data-toggle="collapse" data-target=".started" aria-expanded="false" aria-controls="started">Login Here!</a></div>
+            <div class="text-center w3-text-white">Already Registered? <a href="#" data-toggle="collapse" data-target=".started" aria-expanded="false" aria-controls="started">Login Here!</a></div>
         </div>
     </div>
 </div>
