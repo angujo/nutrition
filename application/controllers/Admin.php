@@ -196,7 +196,7 @@ class Admin extends MY_Controller
     
     function child()
     {
-        $this->view('front/child-page');
+        $this->view('front/food-history-page');
     }
     
     

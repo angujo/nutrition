@@ -42,7 +42,7 @@
     <![endif]-->
 
 </head>
-
+<?php $segment = $this->uri->segment(2); ?>
 <body class="w3-white">
 <div class="w3-top">
     <div class="w3-bar w3-light-gray nav">
@@ -59,9 +59,9 @@
 <div class="">
     <div class="w3-main">
         <div class="w3-bar w3-border w3-green">
-            <a class="w3-bar-item w3-button w3-padding-16" href="#">Recommendations</a>
-            <a class="w3-bar-item w3-button w3-padding-16" href="#">Food History</a>
-            <a class="w3-bar-item w3-button w3-padding-16" href="#">Child Details</a>
+            <a class="w3-bar-item w3-button w3-padding-16 <?= $segment == 'recommendations' || !$segment ? 'w3-grey' : ''; ?>" href="<?= base_url('front/'); ?>">Recommendations</a>
+            <a class="w3-bar-item w3-button w3-padding-16 <?= $segment == 'history' ? 'w3-grey' : ''; ?>" href="<?= base_url('front/history'); ?>">Food History</a>
+            <a class="w3-bar-item w3-button w3-padding-16 <?= $segment == 'child' ? 'w3-grey' : ''; ?>" href="<?= base_url('front/child'); ?>">Child Details</a>
         </div>
         <div class="w3-padding">
             <?php if (@$view) $this->load->view($view); ?>

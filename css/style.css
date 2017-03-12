@@ -391,3 +391,7 @@ fieldset legend {
 .food-list .food-item img {
   max-width: 17rem;
 }
+.modal form .form-group {
+  margin-right: 0;
+  margin-left: 0;
+}
