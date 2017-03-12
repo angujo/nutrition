@@ -34,7 +34,7 @@ class Welcome extends MY_Controller
     function logout()
     {
         if ($this->user->stopSession(get_cookie(HASH_COOKIE_SECURITY))) delete_cookie(HASH_COOKIE_SECURITY);
-        redirect(base_url('welcome'));
+        redirect(base_url());
     }
     
     function started() { $this->load->view('start'); }

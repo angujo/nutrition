@@ -35,14 +35,95 @@
 </head>
 
 <body class="w3-light-grey">
-<div class="w3-white">
-    <div id="get-started" class="vertical-center cover-bg">
-        <?php $this->load->view('include/logo'); ?>
-        <h1 class="w3-text-white welc">Welcome</h1>
-        <div class="w3-text-white col-xs-12 col-sm-12 col-md-6 desc text-center">Monitor your child's nutrients and weight. Get Daily food recommendations to keep your little one healthy and happy.</div>
-        <div class="horizontal-space-between col-xs-12 col-sm-12 col-md-6 btns">
-            <a class="w3-button w3-teal" href="<?=base_url('login') ?>">Login</a>
-            <a class="w3-button w3-teal">Get Started</a>
+<div class="w3-white cover-bg" id="get-started">
+    <div class="started collapse in">
+        <div class="vertical-center window-attached">
+            <?php $this->load->view('include/logo'); ?>
+            <h1 class="w3-text-white welc">Welcome</h1>
+            <div class="w3-text-white col-xs-12 col-sm-12 col-md-6 desc text-center">Monitor your child's nutrients and weight. Get Daily food recommendations to keep your little one healthy and
+                happy.
+            </div>
+            <div class="horizontal-space-between col-xs-12 col-sm-12 col-md-6 btns">
+                <a class="w3-button w3-teal" href="<?= base_url('login') ?>">Login</a>
+                <a class="w3-button w3-teal" data-toggle="collapse" data-target=".started" aria-expanded="false" aria-controls="started">Get Started</a>
+            </div>
+        </div>
+    </div>
+    <div class="window-attached started collapse">
+        <div class="window-attached vertical-center">
+            <div class="carousel slide col-xs-12 col-sm-12 col-md-6" data-ride="carousel" id="started-slider" data-interval="false" data-pause="null" data-wrap="false" data-keyboard="false">
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <div class="slide-item vertical-center">
+                            <h3 class="w3-text-white text-center">What is the name of your child?</h3>
+                            <input class="form-control text-center" type="text">
+                            <hr/>
+                            <div class="horizontal-space-between col-xs-12">
+                                <a></a>
+                                <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="next">Next ></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="slide-item vertical-center">
+                            <h3 class="w3-text-white text-center">What is your child's Date of Birth?</h3>
+                            <input class="form-control text-center" type="date">
+                            <hr/>
+                            <div class="horizontal-space-between col-xs-12">
+                                <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="prev">< Previous</a>
+                                <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="next">Next ></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="slide-item vertical-center">
+                            <h3 class="w3-text-white text-center">What is your child's Gender?</h3>
+                            <div class="w3-text-white">
+                                <label class="radio-inline">
+                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Male
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Female
+                                </label>
+                            </div>
+                            <hr/>
+                            <div class="horizontal-space-between col-xs-12">
+                                <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="prev">< Previous</a>
+                                <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="next">Next ></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="slide-item vertical-center">
+                            <h3 class="w3-text-white text-center">How much does your child weigh now?</h3>
+                            <input class="form-control text-center" step="0.01" min="0" type="number">
+                            <hr/>
+                            <div class="horizontal-space-between col-xs-12">
+                                <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="prev">< Previous</a>
+                                <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="next">Next ></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="slide-item vertical-center">
+                            <h3 class="w3-text-white text-center">Enter your username and password</h3>
+                            <div class="horizontal-center col-xs-12">
+                                <input type="text" name="usermail" class="w3-input text-center w3-animate-input col-xs-12 col-sm-10 col-md-6" id="i-title" placeholder="Username" value="">
+                            </div><hr/>
+                            <div class="horizontal-center col-xs-12">
+                                <input type="password" name="password" class="w3-input text-center w3-animate-input col-xs-12 col-sm-10 col-md-6" id="i-title" placeholder="Password" value="">
+                            </div>
+                            <hr/>
+                            <div class="horizontal-space-between col-xs-12">
+                                <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="prev">< Previous</a>
+                                <button class="w3-button w3-teal" href="#started-slider" role="button" data-slide="next">Register</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <div class="text-center w3-text-white">Already Registered? <a data-toggle="collapse" data-target=".started" aria-expanded="false" aria-controls="started">Login Here!</a></div>
         </div>
     </div>
 </div>

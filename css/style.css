@@ -414,3 +414,6 @@ fieldset legend {
 #get-started .btns {
   margin-top: 2rem;
 }
+#get-started .slide-item {
+  min-height: 25rem;
+}
