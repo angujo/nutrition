@@ -34,8 +34,8 @@
 
 </head>
 
-<body class="vertical-center w3-light-grey">
-<div class="col-xs-12 col-sm-8 col-md-5 w3-white">
+<body class="vertical-center w3-light-grey cover-bg">
+<div class="col-xs-12 col-sm-8 col-md-5 w3-white shade">
     <div class="login-page clearfix">
         <div class="horizontal-center">
             <?php $this->load->view('include/logo'); ?>

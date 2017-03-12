@@ -3,6 +3,7 @@
 }
 html body {
   margin: 0;
+  min-width: 400px !important;
 }
 /**----------------------------------------------------------------------------*/
 /* GENERATE FLEX BOX PARAMETERS*/
@@ -394,4 +395,22 @@ fieldset legend {
 .modal form .form-group {
   margin-right: 0;
   margin-left: 0;
+}
+.cover-bg {
+  background: url("../img/m2c-bg.jpg") top center no-repeat fixed;
+  background-size: cover;
+}
+.cover-bg .shade {
+  background: #ffffffb3 !important;
+}
+#get-started .welc {
+  font-size: 8rem !important;
+  line-height: 1;
+  margin-bottom: 0;
+}
+#get-started .desc {
+  text-shadow: 0 0 4px #000;
+}
+#get-started .btns {
+  margin-top: 2rem;
 }

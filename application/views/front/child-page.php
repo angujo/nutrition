@@ -23,17 +23,42 @@
             <div class="w3-padding-medium w3-large">
                 <b>Born</b> <?= date('F j, Y', strtotime('-' . rand(2, 9) . 'months')); ?><br/>
                 <b><?= rand(10, 20); ?>Kg</b>
+                <button class="btn-block btn-info btn" data-toggle="modal" data-target="#child-weight-modal"><i class="fa fa-plus fa-fw"></i>New Weight Entry</button>
             </div>
         </div>
     </div>
 </div>
 <hr/>
 <div class="w3-container w3-grey">
-    <h3>Age Changes</h3>
+    <h3>Weight Changes</h3>
 </div>
 <div class="w3-container">
-    <div class="w3-padding-8">
-        <img src="<?= base_url('front/weight-graph'); ?>" class="img-responsive img-thumbnail">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8">
+            <div class="w3-padding-8">
+                <img src="<?= base_url('front/weight-graph'); ?>" class="img-responsive img-thumbnail">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Entry Date</th>
+                    <th>Weight</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach (range(1, 12) as $weight) { ?>
+                    <tr>
+                        <td><?= date('Y-m-d'); ?></td>
+                        <td><?= rand(5, 30); ?></td>
+                        <td><a class="text-danger"><i class="fa fa-trash fa-fw"></i></a></td>
+                    </tr>
+                <?php } ?>
+                </tbody>
+            </table>
+        </div>
     </div>
     <hr/>
 </div>

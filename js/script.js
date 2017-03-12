@@ -37,5 +37,5 @@ var to = null;
 
 function resizer() {
 	var nH = $('nav').height(), wH = $(window).height();
-	$('#page-wrapper').css({'min-height': (wH - nH) + 'px'});
+	$('#page-wrapper,#get-started').css({'min-height': (wH - nH) + 'px'});
 }

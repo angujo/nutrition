@@ -10,6 +10,8 @@ class Welcome extends MY_Controller
         $this->load->view('login', $this->data);
     }
     
+    function login() { $this->index(); }
+    
     private function doLog()
     {
         if (empty($this->POST)) return;
@@ -34,4 +36,6 @@ class Welcome extends MY_Controller
         if ($this->user->stopSession(get_cookie(HASH_COOKIE_SECURITY))) delete_cookie(HASH_COOKIE_SECURITY);
         redirect(base_url('welcome'));
     }
+    
+    function started() { $this->load->view('start'); }
 }
