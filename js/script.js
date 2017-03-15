@@ -32,6 +32,8 @@ var to = null;
 		});
 		$('textarea.summernote').summernote({height: 250});
 		resizer();
+		$('[type=date]').datepicker({'format': 'yyyy-mm-dd', endDate: (new Date()).yyyymmdd()});
+		$('form').validate({errorClass: 'input-validation-error', errorElement: 'em', ignore: '.ignore'});
 	});
 })(jQuery);
 
@@ -39,3 +41,14 @@ function resizer() {
 	var nH = $('nav').height(), wH = $(window).height();
 	$('#page-wrapper,.window-attached').css({'min-height': (wH - nH) + 'px'});
 }
+
+Date.prototype.yyyymmdd = function (separator) {
+	separator = separator || '-';
+	var mm = this.getMonth() + 1; // getMonth() is zero-based
+	var dd = this.getDate();
+
+	return [this.getFullYear(), separator,
+	        (mm > 9 ? '' : '0') + mm, separator,
+	        (dd > 9 ? '' : '0') + dd
+	].join('');
+};

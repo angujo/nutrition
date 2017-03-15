@@ -53,4 +53,5 @@ $route['default_controller']   = 'welcome/started';
 $route['404_override']         = '';
 $route['translate_uri_dashes'] = TRUE;
 
-$route['login'] = $route['login/'] = $route['login/(:any)'] = 'welcome/login';
+$route['login']   = $route['login/'] = $route['login/(:any)'] = 'welcome/login';
+$route['started'] = $route['started/'] = $route['started/(:any)'] = 'welcome/started';

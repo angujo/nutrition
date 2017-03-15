@@ -36,4 +36,23 @@ class MY_Controller extends CI_Controller
         $this->data['view'] = $view;
         $this->load->view('user-skeleton', $this->data);
     }
+    
+    protected function uploadImage($fieldName)
+    {
+        $config['upload_path']      = FCPATH . 'img' . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR;
+        $config['allowed_types']    = 'png|jpg|jpeg|bmp';
+        $config['max_size']         = 1000;
+        $config['file_name']        = uniqid('child-');
+        $config['file_ext_tolower'] = TRUE;
+        $config['overwrite']        = TRUE;
+        
+        $this->load->library('upload', $config);
+        
+        if (!$this->upload->do_upload($fieldName)) {
+            $this->data['error'] = $this->upload->display_errors();
+            return NULL;
+        }
+        $d = $this->upload->data();
+        return $d['file_name'];
+    }
 }

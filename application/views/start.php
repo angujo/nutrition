@@ -17,6 +17,7 @@
     <link href="<?= base_url('css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?= base_url('js/plugins/tags/bootstrap-tagsinput.css'); ?>" rel="stylesheet">
     <link href="<?= base_url('js/plugins/wysiwyg/summernote.css'); ?>" rel="stylesheet">
+    <link href="<?= base_url('js/plugins/date/css/bootstrap-datepicker.min.css'); ?>" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="<?= base_url('css/sb-admin.css'); ?>" rel="stylesheet">
@@ -31,7 +32,6 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
 
 <body class="w3-light-grey">
@@ -51,77 +51,81 @@
     </div>
     <div class="window-attached started collapse">
         <div class="window-attached vertical-center">
-            <div class="carousel slide col-xs-12 col-sm-12 col-md-6" data-ride="carousel" id="started-slider" data-interval="false" data-pause="null" data-wrap="false" data-keyboard="false">
-                <form class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <div class="slide-item vertical-center">
-                            <h3 class="w3-text-white text-center">What is the name of your child?</h3>
-                            <input class="form-control text-center" type="text">
-                            <hr/>
-                            <div class="horizontal-space-between col-xs-12">
-                                <a></a>
-                                <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="next">Next ></a>
+            <form class="col-xs-12 col-sm-12 col-md-6" role="listbox" method="post" action="<?= base_url('started'); ?>">
+                <div class="carousel slide" data-ride="carousel" id="started-slider" data-interval="false" data-pause="null" data-wrap="false" data-keyboard="false">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <div class="slide-item vertical-center">
+                                <h3 class="w3-text-white text-center">What is the name of your child?</h3>
+                                <input class="form-control text-center" type="text" name="child_name" required>
+                                <hr/>
+                                <div class="horizontal-space-between col-xs-12">
+                                    <a></a>
+                                    <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="next">Next ></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="slide-item vertical-center">
+                                <h3 class="w3-text-white text-center">What is your child's Date of Birth?</h3>
+                                <input class="form-control text-center" type="date" name="date_of_birth" required>
+                                <hr/>
+                                <div class="horizontal-space-between col-xs-12">
+                                    <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="prev">< Previous</a>
+                                    <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="next">Next ></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="slide-item vertical-center">
+                                <h3 class="w3-text-white text-center">What is your child's Gender?</h3>
+                                <div class="w3-text-white">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="gender" id="m" value="m" checked> Male
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="gender" id="f" value="f" required> Female
+                                    </label>
+                                </div>
+                                <hr/>
+                                <div class="horizontal-space-between col-xs-12">
+                                    <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="prev">< Previous</a>
+                                    <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="next">Next ></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="slide-item vertical-center">
+                                <h3 class="w3-text-white text-center">How much does your child weigh now?</h3>
+                                <input class="form-control text-center" step="0.01" min="0" type="number" name="weight" required>
+                                <hr/>
+                                <div class="horizontal-space-between col-xs-12">
+                                    <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="prev">< Previous</a>
+                                    <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="next">Next ></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="slide-item vertical-center">
+                                <h3 class="w3-text-white text-center">Enter your new username and password</h3>
+                                <div class="horizontal-center col-xs-12">
+                                    <input type="text" name="usermail" required class="w3-input text-center w3-animate-input col-xs-12 col-sm-10 col-md-6" id="i-title" placeholder="Username" value="">
+                                </div>
+                                <hr/>
+                                <div class="horizontal-center col-xs-12">
+                                    <input type="password" name="password" required class="w3-input text-center w3-animate-input col-xs-12 col-sm-10 col-md-6" id="i-title" placeholder="Password"
+                                           value="">
+                                </div>
+                                <hr/>
+                                <div class="horizontal-space-between col-xs-12">
+                                    <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="prev">< Previous</a>
+                                    <button class="w3-button w3-teal" type="submit">Register</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="slide-item vertical-center">
-                            <h3 class="w3-text-white text-center">What is your child's Date of Birth?</h3>
-                            <input class="form-control text-center" type="date">
-                            <hr/>
-                            <div class="horizontal-space-between col-xs-12">
-                                <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="prev">< Previous</a>
-                                <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="next">Next ></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="slide-item vertical-center">
-                            <h3 class="w3-text-white text-center">What is your child's Gender?</h3>
-                            <div class="w3-text-white">
-                                <label class="radio-inline">
-                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Male
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Female
-                                </label>
-                            </div>
-                            <hr/>
-                            <div class="horizontal-space-between col-xs-12">
-                                <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="prev">< Previous</a>
-                                <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="next">Next ></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="slide-item vertical-center">
-                            <h3 class="w3-text-white text-center">How much does your child weigh now?</h3>
-                            <input class="form-control text-center" step="0.01" min="0" type="number">
-                            <hr/>
-                            <div class="horizontal-space-between col-xs-12">
-                                <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="prev">< Previous</a>
-                                <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="next">Next ></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="slide-item vertical-center">
-                            <h3 class="w3-text-white text-center">Enter your new username and password</h3>
-                            <div class="horizontal-center col-xs-12">
-                                <input type="text" name="usermail" required class="w3-input text-center w3-animate-input col-xs-12 col-sm-10 col-md-6" id="i-title" placeholder="Username" value="">
-                            </div><hr/>
-                            <div class="horizontal-center col-xs-12">
-                                <input type="password" name="password" required class="w3-input text-center w3-animate-input col-xs-12 col-sm-10 col-md-6" id="i-title" placeholder="Password" value="">
-                            </div>
-                            <hr/>
-                            <div class="horizontal-space-between col-xs-12">
-                                <a class="w3-button w3-teal" href="#started-slider" role="button" data-slide="prev">< Previous</a>
-                                <button class="w3-button w3-teal" href="#started-slider" role="button" type="submit" data-slide="next">Register</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                </div>
+            </form>
             <hr/>
             <div class="text-center w3-text-white">Already Registered? <a href="#" data-toggle="collapse" data-target=".started" aria-expanded="false" aria-controls="started">Login Here!</a></div>
         </div>
@@ -138,6 +142,8 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="<?= base_url('js/bootstrap.min.js'); ?>"></script>
 <script src="<?= base_url('js/plugins/wysiwyg/summernote.js'); ?>"></script>
+<script src="<?= base_url('js/plugins/date/js/bootstrap-datepicker.min.js'); ?>" type="application/javascript"></script>
+<script src="<?= base_url('js/plugins/validate/jquery.validate.js'); ?>" type="application/javascript"></script>
 <!-- Bootstrap Tags -->
 <script src="<?= base_url('js/plugins/tags/bootstrap-tagsinput.min.js'); ?>"></script>
 

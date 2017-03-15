@@ -25,6 +25,7 @@
     <link href="<?= base_url('css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?= base_url('js/plugins/tags/bootstrap-tagsinput.css'); ?>" rel="stylesheet">
     <link href="<?= base_url('js/plugins/wysiwyg/summernote.css'); ?>" rel="stylesheet">
+    <link href="<?= base_url('js/plugins/date/css/bootstrap-datepicker.min.css'); ?>" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="<?= base_url('css/sb-admin.css'); ?>" rel="stylesheet">
@@ -55,7 +56,7 @@
 <div class="">
     <nav class="w3-sidenav w3-collapse w3-teal w3-text-white" style="width:200px" id="mySidenav">
         <a href="#" onclick="w3_close()" class="w3-closenav w3-hide-large">Close &times;</a>
-        <a href="<?= base_url('admin/'); ?>" class="w3-large w3-hover-grey w3-text-white w3-padding">
+        <a href="<?= base_url('front/'); ?>" class="w3-large w3-hover-grey w3-text-white w3-padding">
             <i class="fa fa-home fa-fw"></i>Home</a>
         <a href="<?= base_url('admin/nutrients'); ?>" class="w3-large w3-hover-grey w3-text-white w3-padding">
             <i class="fa-fw fa fa-tint"></i>Food & Nutrients</a>
@@ -91,6 +92,8 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="<?= base_url('js/bootstrap.min.js'); ?>"></script>
 <script src="<?= base_url('js/plugins/wysiwyg/summernote.js'); ?>"></script>
+<script src="<?= base_url('js/plugins/date/js/bootstrap-datepicker.min.js'); ?>" type="application/javascript"></script>
+<script src="<?= base_url('js/plugins/validate/jquery.validate.js'); ?>" type="application/javascript"></script>
 <!-- Bootstrap Tags -->
 <script src="<?= base_url('js/plugins/tags/bootstrap-tagsinput.min.js'); ?>"></script>
 

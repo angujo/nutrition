@@ -417,3 +417,12 @@ fieldset legend {
 #get-started .slide-item {
   min-height: 25rem;
 }
+#get-started .slide-item em.input-validation-error {
+  text-align: center;
+}
+em.input-validation-error {
+  display: block;
+  width: 100%;
+  color: #a94442;
+  font-size: 90%;
+}

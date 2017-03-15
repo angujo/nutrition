@@ -13,7 +13,7 @@ class Admin extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        if (!User::$C_USER) redirect(base_url('welcome'));
+        if (!User::$C_USER || !User::$C_USER->is_admin) redirect(base_url('welcome'));
         $this->load->model('adminmodel');
         $this->modelAdmin = new Adminmodel();
     }

@@ -6,7 +6,7 @@ class Welcome extends MY_Controller
     public function index()
     {
         $this->doLog();
-        if (User::$C_USER) redirect(base_url('admin'));
+        if (User::$C_USER) redirect(base_url('front'));
         $this->load->view('login', $this->data);
     }
     
@@ -37,5 +37,39 @@ class Welcome extends MY_Controller
         redirect(base_url());
     }
     
-    function started() { $this->load->view('start'); }
+    function started()
+    {
+        if ($this->POST) {
+            $this->startRegister();
+        }
+        $this->load->view('start');
+    }
+    
+    private function startRegister()
+    {
+        if (6 > count(array_filter($this->POST, 'trim'))) {
+            $this->data['error'] = 'Ensure you have entered values for all fields!';
+            return;
+        }
+        $user  = ['username' => $this->POST['usermail'], 'password' => password_hash($this->POST['password'], PASSWORD_BCRYPT)];
+        $child = ['child_name' => $this->POST['child_name'], 'date_of_birth' => $this->POST['date_of_birth'], 'gender' => $this->POST['gender'],];
+        if ($this->user->getUser($this->POST['usermail'])) {
+            $this->data['error'] = 'Username already taken!';
+            return;
+        }
+        if (!$uId = $this->user->newUser($user)) {
+            $this->data['error'] = 'Error encountered saving child details! Login to proceed!';
+            return;
+        }
+        $child['user_id'] = $uId;
+        if (!$cId = $this->user->newChild($child)) {
+            $this->data['error'] = 'Error encountered saving child details! Login to proceed!';
+            return;
+        }
+        $this->user->newChildWeight(['child_id' => $cId, 'weight_date' => date('Y-m-d'), 'weight' => (float)$this->POST['weight']]);
+        $this->doLog();
+        if (User::$C_USER) {
+            redirect(base_url('front'));
+        }
+    }
 }

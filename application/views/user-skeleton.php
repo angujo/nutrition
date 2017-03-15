@@ -25,6 +25,7 @@
     <link href="<?= base_url('css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?= base_url('js/plugins/tags/bootstrap-tagsinput.css'); ?>" rel="stylesheet">
     <link href="<?= base_url('js/plugins/wysiwyg/summernote.css'); ?>" rel="stylesheet">
+    <link href="<?= base_url('js/plugins/date/css/bootstrap-datepicker.min.css'); ?>" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="<?= base_url('css/sb-admin.css'); ?>" rel="stylesheet">
@@ -62,7 +63,14 @@
             <a class="w3-bar-item w3-button w3-padding-16 <?= $segment == 'recommendations' || !$segment ? 'w3-grey' : ''; ?>" href="<?= base_url('front/'); ?>">Recommendations</a>
             <a class="w3-bar-item w3-button w3-padding-16 <?= $segment == 'history' ? 'w3-grey' : ''; ?>" href="<?= base_url('front/history'); ?>">Food History</a>
             <a class="w3-bar-item w3-button w3-padding-16 <?= $segment == 'child' ? 'w3-grey' : ''; ?>" href="<?= base_url('front/child'); ?>">Child Details</a>
+            <?php if (User::$C_USER->is_admin) { ?>
+                <a class="w3-bar-item w3-button w3-padding-16" href="<?= base_url('admin'); ?>">Admin Portal</a>
+            <?php } ?>
         </div>
+        <?php if (@$error) { ?>
+            <div class="alert alert-warning"><?= $error; ?></div> <?php } ?>
+        <?php if (@$msg) { ?>
+            <div class="alert alert-success"><?= $msg; ?></div> <?php } ?>
         <div class="w3-padding">
             <?php if (@$view) $this->load->view($view); ?>
         </div>
@@ -76,6 +84,8 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="<?= base_url('js/bootstrap.min.js'); ?>"></script>
 <script src="<?= base_url('js/plugins/wysiwyg/summernote.js'); ?>"></script>
+<script src="<?= base_url('js/plugins/date/js/bootstrap-datepicker.min.js'); ?>" type="application/javascript"></script>
+<script src="<?= base_url('js/plugins/validate/jquery.validate.js'); ?>" type="application/javascript"></script>
 <!-- Bootstrap Tags -->
 <script src="<?= base_url('js/plugins/tags/bootstrap-tagsinput.min.js'); ?>"></script>
 
