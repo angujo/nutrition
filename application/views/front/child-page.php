@@ -67,7 +67,7 @@
     </div>
     <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="child-weight-modal">
         <div class="modal-dialog modal-smx" role="document">
-            <form class="modal-content form-horizontal" method="post" action="<?= base_url('front/child'); ?>">
+            <form class="modal-content form-horizontal" id="weight-frm" method="post" action="<?= base_url('front/child'); ?>">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="gridSystemModalLabel">New Child Weight</h4>
@@ -95,7 +95,7 @@
 <?php } ?>
 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="child-det-modal">
     <div class="modal-dialog modal-smx" role="document">
-        <form class="modal-content form-horizontal" method="post" action="<?= base_url('front/child'); ?>" enctype="multipart/form-data">
+        <form class="modal-content form-horizontal" id="frm-child" method="post" action="<?= base_url('front/child'); ?>" enctype="multipart/form-data">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="gridSystemModalLabel">Child Details</h4>
