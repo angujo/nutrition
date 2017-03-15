@@ -124,7 +124,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Picture</label>
-                            <input type="file" name="child_image" accept="image/*" required>
+                            <input type="file" name="child_image" accept="image/*">
                         </div>
                     </div>
                 </div>
