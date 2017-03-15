@@ -33,7 +33,9 @@ var to = null;
 		$('textarea.summernote').summernote({height: 250});
 		resizer();
 		$('[type=date]').datepicker({'format': 'yyyy-mm-dd', endDate: (new Date()).yyyymmdd()});
-		$('form').validate({errorClass: 'input-validation-error', errorElement: 'em', ignore: '.ignore'});
+		$('form').each(function () {
+			$(this).validate({errorClass: 'input-validation-error', errorElement: 'em', ignore: '.ignore'});
+		});
 	});
 })(jQuery);
 
